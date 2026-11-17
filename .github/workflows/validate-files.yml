@@ -1,0 +1,20 @@
+name: Validate Files
+on: push
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate index.html
+        run: |
+          if [ ! -f index.html ]; then
+            echo "index.html file is missing!"
+            exit 1
+
+      - name: Validate script.js
+        run: |
+          if [ ! -f script.js ]; then
+            echo "script.js file is missing!"
+            exit 1
