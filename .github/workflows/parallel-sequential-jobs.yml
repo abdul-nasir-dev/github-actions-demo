@@ -1,0 +1,44 @@
+name: Validate Files
+on: push
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate index.html
+        run: |
+          if [ ! -f index.html ]; then
+            echo "index.html file is missing!"
+            exit 1
+          fi
+          echo "index.html file is present."
+
+    validate-js:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate script.js
+        run: |
+          if [ ! -f script.js ]; then
+            echo "script.js file is missing!"
+            exit 1
+          fi
+          echo "script.js file is present."
+
+    validate-script-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate script.js code status
+        run: |
+          if ! grep -q "console.log(\"Hello, World!\");" script.js; then
+            echo "script.js does not contain the expected code!"
+            exit 1
+          fi
+          echo "script.js contains the expected code."
