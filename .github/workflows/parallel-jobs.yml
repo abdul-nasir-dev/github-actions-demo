@@ -1,5 +1,7 @@
 name: Validate Files Parallel
-on: push
+on: 
+  # push:
+  workflow_dispatch:
 jobs:
   validate-html:
     runs-on: ubuntu-latest
