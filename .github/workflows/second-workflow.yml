@@ -7,13 +7,13 @@ on:
       - completed
 jobs:
   welcome-job:
-    if:${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Welcome Job
         run: echo "Welcome this is second github action."
   bye-job:
-    if:${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Bye Job
