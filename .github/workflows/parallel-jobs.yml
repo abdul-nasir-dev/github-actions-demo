@@ -30,7 +30,6 @@ jobs:
           echo "script.js file is present."
 
   validate-script-code:
-    needs: [validate-html, validate-js]         #Ensure validate-html and validate-js complete first that is squential execution of jobs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
